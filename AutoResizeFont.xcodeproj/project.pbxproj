@@ -14,6 +14,8 @@
 		B35D6AC32274A1C4002E1B37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35D6AC12274A1C4002E1B37 /* LaunchScreen.storyboard */; };
 		B35D6ACE2274A1C5002E1B37 /* AutoResizeFontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D6ACD2274A1C5002E1B37 /* AutoResizeFontTests.swift */; };
 		B35D6AD92274A1C5002E1B37 /* AutoResizeFontUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D6AD82274A1C5002E1B37 /* AutoResizeFontUITests.swift */; };
+		B35D6AE92274A3B0002E1B37 /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D6AE82274A3B0002E1B37 /* DynamicLabel.swift */; };
+		B35D6AEB2274A941002E1B37 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D6AEA2274A941002E1B37 /* DeviceType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		B35D6AD42274A1C5002E1B37 /* AutoResizeFontUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoResizeFontUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35D6AD82274A1C5002E1B37 /* AutoResizeFontUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoResizeFontUITests.swift; sourceTree = "<group>"; };
 		B35D6ADA2274A1C5002E1B37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B35D6AE82274A3B0002E1B37 /* DynamicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
+		B35D6AEA2274A941002E1B37 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				B35D6ABF2274A1C4002E1B37 /* Assets.xcassets */,
 				B35D6AC12274A1C4002E1B37 /* LaunchScreen.storyboard */,
 				B35D6AC42274A1C4002E1B37 /* Info.plist */,
+				B35D6AE82274A3B0002E1B37 /* DynamicLabel.swift */,
+				B35D6AEA2274A941002E1B37 /* DeviceType.swift */,
 			);
 			path = AutoResizeFont;
 			sourceTree = "<group>";
@@ -257,6 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35D6ABB2274A1C2002E1B37 /* ViewController.swift in Sources */,
+				B35D6AEB2274A941002E1B37 /* DeviceType.swift in Sources */,
+				B35D6AE92274A3B0002E1B37 /* DynamicLabel.swift in Sources */,
 				B35D6AB92274A1C2002E1B37 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
