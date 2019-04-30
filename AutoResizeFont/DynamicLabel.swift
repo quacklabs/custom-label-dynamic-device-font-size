@@ -51,13 +51,13 @@ final class DynamicLabel: UILabel {
     func calculateFontSize() {
         switch UIDevice().type {
         case .iPhoneSE, .iPhone5, .iPhone5S, .iPhone5C:
-            pointSize = self.font!.withSize(self.font!.pointSize)
+            pointSize = self.font!.withSize(self.font!.pointSize) //leave font size the same as from Interface builder
         case .iPhone6, .iPhone6S, .iPhone7, .iPhone8:
-            self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 3))
+            self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2))
         case .iPhone6plus, .iPhone6Splus, .iPhone7plus, .iPhone8plus:
-            pointSize = self.font!.withSize(self.font!.pointSize * (relativeHeight / 3) )
-        case .iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax:
             pointSize = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2) )
+        case .iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax:
+            pointSize = self.font!.withSize(self.font!.pointSize * (relativeHeight / 3) )
         case .iPad2, .iPad3, .iPad4, .iPad5, .iPad6, .iPadAir, .iPadMini, .iPadPro2_12_9:
             pointSize = self.font!.withSize(self.font!.pointSize * relativeHeight)
         case .iPod1, .iPod2, .iPod3, .iPod4, .iPod5:
@@ -65,5 +65,7 @@ final class DynamicLabel: UILabel {
         default:
             pointSize = self.font!.withSize(self.font!.pointSize * relativeHeight)
         }
+        
+        print(self.font!.pointSize)
     }
 }
