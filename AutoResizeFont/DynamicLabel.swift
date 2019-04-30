@@ -11,8 +11,8 @@ import UIKit
 @IBDesignable
 final class DynamicLabel: UILabel {
     
-    
-    
+    // Allow font to accept size from interface builder and scale up from there.
+    // This is to let us use values from the design specs
     @IBInspectable
     var fontSize: CGFloat {
         get{
@@ -23,7 +23,6 @@ final class DynamicLabel: UILabel {
             calculateFontSize()
         }
     }
-    
     
     // Override font for view.
     override var font : UIFont?{
@@ -36,11 +35,11 @@ final class DynamicLabel: UILabel {
     }
     
     // Deduced by multiplying the height of the Label by a constant.
-    var relativeHeight: CGFloat!
+    var relativeHeight : CGFloat!
     
     // Relative constant to multiply our initial element height.
     // This lets us double the size on bigger devices
-    let relativeFontConstant: CGFloat = 0.1
+    let relativeFontConstant:CGFloat = 0.1
     
     override init(frame: CGRect) {
         super.init(frame: frame)
