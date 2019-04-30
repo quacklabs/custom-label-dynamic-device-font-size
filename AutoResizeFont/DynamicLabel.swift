@@ -11,8 +11,8 @@ import UIKit
 @IBDesignable
 final class DynamicLabel: UILabel {
     
-    //allow font to accept size from interface builder and scale up from there.
-    //this is to let us use values from the design specs
+    // Allow font to accept size from interface builder and scale up from there.
+    // This is to let us use values from the design specs
     @IBInspectable
     var pointSize = UIFont() {
         didSet{
@@ -20,7 +20,7 @@ final class DynamicLabel: UILabel {
         }
     }
     
-    //override font for view
+    // Override font for view.
     override var font : UIFont?{
         didSet{
             setNeedsLayout()
@@ -28,11 +28,11 @@ final class DynamicLabel: UILabel {
         }
     }
     
-    //deduced by multiplying the height of the Label by a constant
+    // Deduced by multiplying the height of the Label by a constant.
     var relativeHeight : CGFloat!
     
-    //relative constant to multiply our initial element height.
-    //this lets us double the size on bigger devices
+    // Relative constant to multiply our initial element height.
+    // This lets us double the size on bigger devices
     let relativeFontConstant:CGFloat = 0.1
     
     override init(frame: CGRect) {
@@ -47,7 +47,7 @@ final class DynamicLabel: UILabel {
         calculateFontSize()
     }
     
-    //calculate fonts for iPad, iPhone and iPod
+    // Calculate fonts for iPad, iPhone and iPod.
     func calculateFontSize() {
         switch UIDevice().type {
         case .iPhoneSE, .iPhone5, .iPhone5S, .iPhone5C:
