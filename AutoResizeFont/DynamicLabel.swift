@@ -73,5 +73,7 @@ final class DynamicLabel: UILabel {
         default:
             self.font = self.font!.withSize(self.font!.pointSize * relativeHeight)
         }
+        
+        print(self.font!.pointSize)
     }
 }
