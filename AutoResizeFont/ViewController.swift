@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var label1 : DynamicLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
