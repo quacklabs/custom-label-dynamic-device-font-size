@@ -60,7 +60,7 @@ final class DynamicLabel: UILabel {
         case .iPhoneSE, .iPhone5, .iPhone5S, .iPhone5C:
             self.font = self.font!.withSize(self.font!.pointSize) //leave font size the same as from Interface builder
         case .iPhone6, .iPhone6S, .iPhone7, .iPhone8:
-            self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2))
+            resizedFont = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2))
         case .iPhone6plus, .iPhone6Splus, .iPhone7plus, .iPhone8plus:
             self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2) )
         case .iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax:
