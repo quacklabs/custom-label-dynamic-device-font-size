@@ -13,10 +13,9 @@ final class DynamicLabel: UILabel {
     
     // Allow font to accept size from interface builder and scale up from there.
     // This is to let us use values from the design specs
-    @IBInspectable
-    var pointSize = UIFont() {
+    var resizedFont = UIFont() {
         didSet{
-            self.font = pointSize
+            self.font = resizedFont
         }
     }
     
@@ -51,19 +50,19 @@ final class DynamicLabel: UILabel {
     func calculateFontSize() {
         switch UIDevice().type {
         case .iPhoneSE, .iPhone5, .iPhone5S, .iPhone5C:
-            pointSize = self.font!.withSize(self.font!.pointSize) //leave font size the same as from Interface builder
+            resizedFont = self.font!.withSize(self.font!.pointSize) //leave font size the same as from Interface builder
         case .iPhone6, .iPhone6S, .iPhone7, .iPhone8:
-            self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2))
+            resizedFont = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2))
         case .iPhone6plus, .iPhone6Splus, .iPhone7plus, .iPhone8plus:
-            pointSize = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2) )
+            resizedFont = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2) )
         case .iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax:
-            pointSize = self.font!.withSize(self.font!.pointSize * (relativeHeight / 3) )
+            resizedFont = self.font!.withSize(self.font!.pointSize * (relativeHeight / 3) )
         case .iPad2, .iPad3, .iPad4, .iPad5, .iPad6, .iPadAir, .iPadMini, .iPadPro2_12_9:
             pointSize = self.font!.withSize(self.font!.pointSize * relativeHeight)
         case .iPod1, .iPod2, .iPod3, .iPod4, .iPod5:
-            pointSize = self.font!.withSize(self.font!.pointSize * (relativeHeight / 4 ) )
+            resizedFont = self.font!.withSize(self.font!.pointSize * (relativeHeight / 4 ) )
         default:
-            pointSize = self.font!.withSize(self.font!.pointSize * relativeHeight)
+            resizedFont = self.font!.withSize(self.font!.pointSize * relativeHeight)
         }
     }
 }
