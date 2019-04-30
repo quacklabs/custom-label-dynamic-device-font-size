@@ -47,7 +47,7 @@ final class DynamicLabel: UILabel {
         calculateFontSize()
     }
     
-    // todo calculate fonts for iPad, iPhone and iPod
+    //calculate fonts for iPad, iPhone and iPod
     func calculateFontSize() {
         switch UIDevice().type {
         case .iPhoneSE, .iPhone5, .iPhone5S, .iPhone5C:
@@ -65,7 +65,5 @@ final class DynamicLabel: UILabel {
         default:
             pointSize = self.font!.withSize(self.font!.pointSize * relativeHeight)
         }
-        
-        print(self.font!.pointSize)
     }
 }
