@@ -36,11 +36,11 @@ final class DynamicLabel: UILabel {
     }
     
     // Deduced by multiplying the height of the Label by a constant.
-    var relativeHeight : CGFloat!
+    var relativeHeight: CGFloat!
     
     // Relative constant to multiply our initial element height.
     // This lets us double the size on bigger devices
-    let relativeFontConstant:CGFloat = 0.1
+    let relativeFontConstant: CGFloat = 0.1
     
     override init(frame: CGRect) {
         super.init(frame: frame)
