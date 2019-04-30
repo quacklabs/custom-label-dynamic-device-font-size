@@ -10,38 +10,68 @@ import UIKit
 
 @IBDesignable
 final class DynamicLabel: UILabel {
+    
+    
+    
     @IBInspectable
-    var fontSizePts: CGFloat {
-        didSet {
+    var fontSize: CGFloat {
+        get{
+            return self.font!.pointSize
+        }
+        set{
+            self.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: newValue)
             calculateFontSize()
-            setNeedsDisplay()
         }
     }
     
+    
+    // Override font for view.
+    override var font : UIFont?{
+        
+        didSet{
+            setNeedsLayout()
+            setNeedsDisplay()
+            self.sizeToFit()
+        }
+    }
+    
+    // Deduced by multiplying the height of the Label by a constant.
+    var relativeHeight : CGFloat!
+    
+    // Relative constant to multiply our initial element height.
+    // This lets us double the size on bigger devices
+    let relativeFontConstant:CGFloat = 0.1
+    
     override init(frame: CGRect) {
-        fontSizePts = 14
-        super.init(frame: frame);
+        super.init(frame: frame)
+        relativeHeight = CGFloat(frame.height * relativeFontConstant)
+        calculateFontSize()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fontSizePts = 14
-        super.init(coder: aDecoder);
+        super.init(coder: aDecoder)
+        relativeHeight = CGFloat(frame.height * relativeFontConstant)
+        calculateFontSize()
     }
     
-    // todo calculate fonts for iPad and iPod
+    // Calculate fonts for iPad, iPhone and iPod.
     func calculateFontSize() {
+        
         switch UIDevice().type {
         case .iPhoneSE, .iPhone5, .iPhone5S, .iPhone5C:
-            self.font = self.font.withSize(self.fontSizePts)
+            self.font = self.font!.withSize(self.font!.pointSize) //leave font size the same as from Interface builder
         case .iPhone6, .iPhone6S, .iPhone7, .iPhone8:
-            self.font = self.font.withSize(self.fontSizePts * 2)
+            self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2))
         case .iPhone6plus, .iPhone6Splus, .iPhone7plus, .iPhone8plus:
-            self.font = self.font.withSize(self.fontSizePts * 2)
+            self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 2) )
         case .iPhoneX, .iPhoneXR, .iPhoneXS, .iPhoneXSMax:
-            self.font = self.font.withSize(self.fontSizePts * 3)
+            self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 3) )
+        case .iPad2, .iPad3, .iPad4, .iPad5, .iPad6, .iPadAir, .iPadMini, .iPadPro2_12_9:
+            self.font = self.font!.withSize(self.font!.pointSize * relativeHeight)
+        case .iPod1, .iPod2, .iPod3, .iPod4, .iPod5:
+            self.font = self.font!.withSize(self.font!.pointSize * (relativeHeight / 4 ) )
         default:
-            self.font = self.font.withSize(self.fontSizePts * 4)
+            self.font = self.font!.withSize(self.font!.pointSize * relativeHeight)
         }
-        print(self.font.pointSize)
     }
 }
