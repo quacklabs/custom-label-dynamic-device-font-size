@@ -16,8 +16,8 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-.DS_Store
-*/xcuserdata/*
+# .DS_Store
+# */xcuserdata/*
 
 ## Other
 *.moved-aside
@@ -55,14 +55,14 @@ Pods/
 Carthage/Checkouts
 Carthage/Build
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
+# # fastlane
+# #
+# # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# # screenshots whenever they are needed.
+# # For more information about the recommended setup visit:
+# # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
+# fastlane/report.xml
+# fastlane/Preview.html
+# fastlane/screenshots/**/*.png
+# fastlane/test_output
